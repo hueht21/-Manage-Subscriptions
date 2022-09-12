@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.a2m.SchedulingSystem.Entity.Customer;
+import com.a2m.SchedulingSystem.Entity.CustomerAndListSchedule;
 import com.a2m.SchedulingSystem.Entity.Register;
 import com.a2m.SchedulingSystem.Sevice.Approve.ApproveSevice;
 import com.a2m.SchedulingSystem.Sevice.ScheduleSevice.ScheduleSevice;
@@ -30,13 +32,13 @@ public class ManageBookCtrl {
 		@GetMapping("/manage_book")
 		public String manageBook(Model model)
 		{
-			
+			CustomerAndListSchedule customerAndListSchedule = new CustomerAndListSchedule();
 			Iterable<Register> listRegisters = scheduleSevice.getListAll();
-			
+			customerAndListSchedule.setListRegisters(listRegisters);
+			customerAndListSchedule.setCustomer(new Customer());
 			//System.out.println("name danh sanh là  : " + listRegisters.get(0).getNameCustomer());
 			
-			
-			model.addAttribute("listSchedue", listRegisters);
+			model.addAttribute("listSchedueAndCustomer", customerAndListSchedule);
 			return "Manage_Book";
 		}
 		
