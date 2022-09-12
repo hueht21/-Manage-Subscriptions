@@ -53,6 +53,7 @@
                                             <th style="min-width: 10vh; !important ">Date</th>
                                             <th>Date Time</th>
                                             <th>Name </th>
+                                            <th>User</th>
                                             <th style="min-width: 10vh; !important ">Email</th>
                                             <th>Number Phone</th>
                                             <th>Address</th>
@@ -77,6 +78,9 @@
                                                 </td>
                                                 <td>
                                                     ${map.nameCustomer}
+                                                </td>
+                                                <td>
+                                                    ${map.customer.user.userName}
                                                 </td>
                                                 <td>
                                                     ${map.email}
