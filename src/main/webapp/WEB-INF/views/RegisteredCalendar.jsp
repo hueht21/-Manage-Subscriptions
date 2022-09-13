@@ -27,10 +27,10 @@
                             <thead class="thead-light">
                                 <tr role="row">
 
-                                    <th class="all sorting_asc" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 394.8px;" aria-sort="ascending" aria-label="Product: activate to sort column descending">Customer</th>
-                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 163.8px;" aria-label="Category: activate to sort column ascending">Date Time</th>
-                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 150.8px;" aria-label="Added Date: activate to sort column ascending">Added Date</th>
-                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 83.8px;" aria-label="Price: activate to sort column ascending">Email</th>
+                                    <th class="all sorting_asc" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 120.8px;" aria-sort="ascending" aria-label="Product: activate to sort column descending">Customer</th>
+                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 57.8px;" aria-label="Category: activate to sort column ascending">Time</th>
+                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 100.8px;" aria-label="Added Date: activate to sort column ascending">Date</th>
+                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 50.8px;" aria-label="Price: activate to sort column ascending">Email</th>
                                     <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 116.8px;" aria-label="Quantity: activate to sort column ascending">Phone</th>
                                     <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 94.8px;" aria-label="Status: activate to sort column ascending">Address</th>
                                     <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 94.8px;" aria-label="Status: activate to sort column ascending">Note</th>
