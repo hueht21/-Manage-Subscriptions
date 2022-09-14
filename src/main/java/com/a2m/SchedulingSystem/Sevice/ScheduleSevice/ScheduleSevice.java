@@ -56,6 +56,12 @@ public class ScheduleSevice {
 
 		return scheduleRepository.findAll();
 	}
+	// tim kiem thông tin khách hàng
+	
+	public Iterable<Register> getListByName(String name)
+	{
+		return scheduleRepository.findByNameCustomer(name);
+	}
 //	public Register getScheduleById(Long id)
 //	{
 //		

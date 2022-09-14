@@ -24,4 +24,10 @@ public class CustomerSevice {
 	{
 		customerRepos.save(customer);
 	}
+	// lay ra danh sách các user 
+	public Iterable<Customer> getListCustomer()
+	{
+		
+		return customerRepos.findAll();
+	}
 }

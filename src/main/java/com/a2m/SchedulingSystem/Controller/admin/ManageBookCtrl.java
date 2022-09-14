@@ -36,7 +36,7 @@ public class ManageBookCtrl {
 			Iterable<Register> listRegisters = scheduleSevice.getListAll();
 			customerAndListSchedule.setListRegisters(listRegisters);
 			customerAndListSchedule.setCustomer(new Customer());
-			//System.out.println("name danh sanh là  : " + listRegisters.get(0).getNameCustomer());
+
 			
 			model.addAttribute("listSchedueAndCustomer", customerAndListSchedule);
 			return "Manage_Book";

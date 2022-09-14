@@ -5,6 +5,8 @@ public class CustomerAndListSchedule {
 	
 	Customer customer;
 	Iterable<Register> listRegisters;
+	
+	
 	public Customer getCustomer() {
 		return customer;
 	}

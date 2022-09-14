@@ -16,14 +16,20 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row mb-2">
+                                    <div class="col-lg-4">
+                                        <h4 class="page-title">Manage registration schedule </h4>
+                                    </div>
+                                    <!-- end col-->
+                                </div>
+                                <div class="row mb-2">
                                     <div class="col-lg-8">
-                                        <form:form class="form-inline" method="POST" modelAttribute="listSchedueAndCustomer">
+                                        <form:form class="form-inline" method="GET" modelAttribute="listSchedueAndCustomer">
                                             <div class="form-group mb-2">
                                                 <label for="inputPassword2" class="sr-only">Search</label>
-                                                <form:input type="search" class="form-control" id="inputPassword2" path="listSchedueAndCustomer.customer.nameCustomer" placeholder="Search..."></form:input>
+                                                <form:input type="text" class="form-control" id="inputSearchByname" path="customer.nameCustomer" placeholder="Search..."></form:input>
 
                                             </div>
-                                            <form:input style="margin-left: 10px;" type="submit" class="btn btn-danger mb-2 mr-2" value="Search"></form:input>
+                                            <input style="margin-left: 10px;" type="submit" class="btn btn-danger mb-2 mr-2 btnSearch" value="Search">
                                             <div class="form-group mx-sm-3 mb-2">
                                                 <label for="status-select" class="mr-2">Status</label>
                                                 <select class="custom-select" id="status-select">
@@ -54,7 +60,7 @@
                                                 <th>Order ID</th>
                                                 <!-- <th>Name Customer</th> -->
                                                 <th style="min-width: 10vh; !important ">Date</th>
-                                                <th>Date Time</th>
+                                                <th>Time</th>
                                                 <th>Name </th>
                                                 <th>User</th>
                                                 <th style="min-width: 10vh; !important ">Email</th>
@@ -227,9 +233,19 @@
 
 
                 });
+                $(document).on("click", ".btnSearch", function() {
+                    event.preventDefault();
+                    var valueName = document.getElementById("inputSearchByname").value;
+                    //console.log("đây là ten" + )
+                    if (valueName == "") {
+                        console.log("đang nulll");
+                        $("#content").load("/manage_book");
+                    } else {
+                        $("#content").load("/searchManager/" + valueName);
+                    }
 
-
-
+                });
+                //
 
                 function getScheuleIndex(index) {
 
