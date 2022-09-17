@@ -97,16 +97,13 @@
                                                     </form> -->
 
                                                     <form method="POST" style="display: inline" action="/deleteSchedle/${map.ID}">
-                                                        <button type="submit" name="btnDeleteSchedule" style="background-color: #ffffff; border: 0px;" id="idBtnDelete" class="action-icon ClassBtnDelete"> 
+                                                        <button type="submit" name="btnDeleteSchedule" style="background-color: #ffffff; border: 0px;" id="idBtnDelete" class="action-icon ClassBtnDeleteID"> 
                                                             <i class="mdi mdi-delete"></i>
                                                         </button>
                                                     </form>
                                                     <c:choose>
                                                         <c:when test="${map.status=='0'}">
                                                             <form method="POST" style="display: inline" action="/approved/${map.ID}">
-
-                                                                <button type="submit" name="btnDeleteSchedule" style="background-color: #37404a; border: 0px; size: 10px; display: inline ; padding: 0;" id="idBtnDelete" class="action-icon ClassBtnDelete">
-                                                                </button>
                                                                 <button class="badge badge-success ClassApproved" style="size: 10px !important ; border: 0; margin: 2px;">Acceptance</button>
 
                                                             </form>
@@ -134,52 +131,10 @@
             </div>
         </body>
         <script>
-            $(document).on("click", ".ClassBtnDelete", function() {
+            $('.ClassBtnDeleteID').unbind().click(function(e) {
                 event.preventDefault();
-                row = $(this).parents('tr');
                 form = $(this).parents('form');
                 //console.log("day la ror " + row + "day la form" + form)
-                console.log("day la urrl " + form.attr('action'))
-                $.ajax({
-                    // Cách lấy url trong form bằng cách lọc thuộc tính action
-                    url: form.attr('action'),
-                    type: 'POST',
-                    dataType: 'json',
-                    // tất cả những gì điền trong form sẽ truyền vào data bằng hàm serialize()
-                    data: form.serialize(),
-
-                    success: function() {
-                        console.log("hahahah")
-                            // row.remove();
-                            // tableClassroom.draw();
-                        $.toast({
-                            heading: 'Notify',
-                            text: "Delete successfully",
-                            showHideTransition: 'slide',
-                            icon: 'success',
-                            position: 'bottom-right',
-                            hideAfter: 5000
-                        })
-                    },
-                    error: function() {
-                        console.log("error rồi");
-                        // $.toast({
-                        //     heading: 'Xóa thất bại!',
-                        //     text: 'Vui lòng thao tác lại! Có sự cố hãy liên hệ đội kỹ thuật',
-                        //     showHideTransition: 'slide',
-                        //     icon: 'error',
-                        //     position: 'bottom-right',
-                        //     hideAfter: 5000
-                        // })
-                    }
-                });
-
-
-            });
-            $(document).on("click", ".ClassApproved", function() {
-                event.preventDefault();
-                // row = $(this).parents('tr');
-                form = $(this).parents('form');
                 console.log("day la urrl " + form.attr('action'))
                 $.ajax({
                     url: form.attr('action'),
@@ -196,8 +151,44 @@
                             icon: 'success',
                             position: 'bottom-right',
                             hideAfter: 2000
-                        })
+                        });
                         $("#content").load("/" + "book_pending");
+                    },
+                    error: function() {
+                        console.log("error roi");
+                    }
+                });
+
+            })
+            $(document).unbind().on("click", ".ClassApproved", function() {
+                event.preventDefault();
+                form = $(this).parents('form');
+                console.log("day la urrl " + form.attr('action'));
+                $('.ClassApproved').off('click');
+                $('.ClassApproved').on('click', function(e) {
+                    getAjax($(this));
+                });
+                $.ajax({
+                    url: form.attr('action'),
+                    type: 'POST',
+                    dataType: 'json',
+                    data: form.serialize(),
+
+                    success: function() {
+                        console.log("hahahah")
+
+                        $.toast({
+                            heading: 'Notify',
+                            text: "Delete successfully",
+                            showHideTransition: 'slide',
+                            icon: 'success',
+                            position: 'bottom-right',
+                            hideAfter: 2000
+                        });
+                        // getElementById("content").reload();
+
+                        $("#content").load("/" + "book_pending");
+
                     },
                     error: function() {
                         console.log("error roi");
@@ -206,9 +197,6 @@
 
 
             });
-
-
-
 
             function getScheuleIndex(index) {
 

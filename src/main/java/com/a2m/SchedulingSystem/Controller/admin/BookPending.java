@@ -46,7 +46,6 @@ public class BookPending {
 	@PostMapping("/deleteSchedle/{id}")
 	public ResponseEntity<Object> deleteSchue(@PathVariable Long id)
 	{
-		
 		System.out.println("lay id " + id);
 		//scheduleSevice.deleteSchue(id);
 		HashMap<String, String> map = new HashMap<>();

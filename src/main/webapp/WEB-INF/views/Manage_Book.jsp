@@ -120,16 +120,9 @@
                                                     </td>
                                                     <td>
                                                         <a href="javascript:void(0);" name="nameEdit" class="action-icon" onclick="getScheuleIndex( ${myIndex.index}  )" id="${map.ID}"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                        <!-- <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a> -->
-
-                                                        <!-- <form method="POST" style="display: inline" action="/editSchedule/${map.ID}">
-                                                        <button type="submit" name="btnEditSchedule" style="background-color: #37404a; border: 0px;" id="idBtnEdit" class="action-icon ClassBtnEdit"> 
-                                                            <i class="mdi mdi-square-edit-outline"></i>
-                                                        </button>
-                                                    </form> -->
 
                                                         <form method="POST" style="display: inline" action="/deleteSchedle/${map.ID}">
-                                                            <button type="submit" name="btnDeleteSchedule" style="background-color: #ffffff; border: 0px;" id="idBtnDelete" class="action-icon ClassBtnDelete"> 
+                                                            <button type="submit" name="btnDeleteSchedule" style="background-color: #ffffff; border: 0px;" id="idBtnDelete" class="action-icon ClassBtnDeleteID"> 
                                                             <i class="mdi mdi-delete"></i>
                                                         </button>
                                                         </form>
@@ -138,10 +131,7 @@
                                                         <c:choose>
                                                             <c:when test="${map.status=='0'}">
                                                                 <form method="POST" style="display: inline" action="/approved/${map.ID}">
-
-                                                                    <button type="submit" name="btnDeleteSchedule" style="background-color: #37404a; border: 0px; size: 10px; display: inline ; padding: 0;" id="idBtnDelete" class="action-icon ClassBtnDelete">
-                                                                </button>
-                                                                    <button class="badge badge-success ClassApproved" style="size: 10px !important ; border: 0; margin: 2px;">Approved</button>
+                                                                    <button class="badge badge-success ClassApprovedd" style="size: 10px !important ; border: 0; margin: 2px;">Approved</button>
 
                                                                 </form>
                                                                 <br />
@@ -170,9 +160,10 @@
                 </div>
             </body>
             <script>
-                $(document).on("click", ".ClassBtnDelete", function() {
+                // xoa lich
+
+                $('.ClassBtnDeleteID').unbind().click(function(e) {
                     event.preventDefault();
-                    row = $(this).parents('tr');
                     form = $(this).parents('form');
                     //console.log("day la ror " + row + "day la form" + form)
                     console.log("day la urrl " + form.attr('action'))
@@ -191,21 +182,53 @@
                                 icon: 'success',
                                 position: 'bottom-right',
                                 hideAfter: 2000
-                            })
+                            });
+                            $("#content").load("/" + "book_pending");
                         },
                         error: function() {
                             console.log("error roi");
                         }
                     });
 
+                })
 
-                });
+
+                // $(document).unbind().on("click", "#idBtnDelete", function() {
+                //     event.preventDefault();
+                //     form = $(this).parents('form');
+                //     //console.log("day la ror " + row + "day la form" + form)
+                //     console.log("day la urrl " + form.attr('action'))
+                //     $.ajax({
+                //         url: form.attr('action'),
+                //         type: 'POST',
+                //         dataType: 'json',
+                //         data: form.serialize(),
+
+                //         success: function() {
+                //             console.log("hahahah")
+                //             $.toast({
+                //                 heading: 'Notify',
+                //                 text: "Delete successfully",
+                //                 showHideTransition: 'slide',
+                //                 icon: 'success',
+                //                 position: 'bottom-right',
+                //                 hideAfter: 2000
+                //             });
+                //             $("#content").load("/" + "book_pending");
+                //         },
+                //         error: function() {
+                //             console.log("error roi");
+                //         }
+                //     });
+                // });
+            </script>
+            <script>
+                // xoá lịch đặt
 
                 // chap nhap lich dat
 
-                $(document).on("click", ".ClassApproved", function() {
+                $(document).unbind().on("click", ".ClassApprovedd", function() {
                     event.preventDefault();
-                    // row = $(this).parents('tr');
                     form = $(this).parents('form');
                     console.log("day la urrl " + form.attr('action'))
                     $.ajax({

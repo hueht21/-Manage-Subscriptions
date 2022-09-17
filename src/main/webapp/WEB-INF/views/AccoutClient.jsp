@@ -128,7 +128,7 @@
                                                     <div class="row mt-4">
                                                         <!-- end col -->
                                                         <div class="text-sm-right">
-                                                            <input type="submit" class="btn btn-danger" value="Update" id="buttonRegister" />
+                                                            <input type="submit" class="btn btn-danger classBtnAccout" value="Update" id="buttonRegister" />
 
                                                         </div>
                                                         <!-- end col -->
@@ -158,48 +158,33 @@
             </div>
 
             <script>
-                // $(document).on("click", ".ClassBtnDelete", function() {
-                //     event.preventDefault();
-                //     row = $(this).parents('tr');
-                //     form = $(this).parents('form');
-                //     //console.log("day la ror " + row + "day la form" + form)
-                //     console.log("day la urrl " + form.attr('action'))
-                //     $.ajax({
-                //         // CÃ¡ch láº¥y url trong form báº±ng cÃ¡ch lá»c thuá»c tÃ­nh action
-                //         url: form.attr('action'),
-                //         type: 'POST',
-                //         dataType: 'json',
-                //         // táº¥t cáº£ nhá»¯ng gÃ¬ Äiá»n trong form sáº½ truyá»n vÃ o data báº±ng hÃ m serialize()
-                //         data: form.serialize(),
+                $(document).unbind().on("click", ".classBtnAccout", function() {
+                    event.preventDefault();
+                    form = $(this).parents('form');
+                    $.ajax({
+                        url: "http://localhost:8080/updateCustomer",
+                        type: 'POST',
+                        dataType: 'json',
 
-                //         success: function() {
-                //             console.log("hahahah")
-                //                 // row.remove();
-                //                 // tableClassroom.draw();
-                //             $.toast({
-                //                 heading: 'Notify',
-                //                 text: "Delete successfully",
-                //                 showHideTransition: 'slide',
-                //                 icon: 'success',
-                //                 position: 'bottom-right',
-                //                 hideAfter: 5000
-                //             })
-                //         },
-                //         error: function() {
-                //             console.log("error roi");
-                //             // $.toast({
-                //             //     heading: 'XÃ³a tháº¥t báº¡i!',
-                //             //     text: 'Vui lÃ²ng thao tÃ¡c láº¡i! CÃ³ sá»± cá» hÃ£y liÃªn há» Äá»i ká»¹ thuáº­t',
-                //             //     showHideTransition: 'slide',
-                //             //     icon: 'error',
-                //             //     position: 'bottom-right',
-                //             //     hideAfter: 5000
-                //             // })
-                //         }
-                //     });
+                        data: form.serialize(),
+
+                        success: function() {
+                            $.toast({
+                                heading: 'Thông báo',
+                                text: "Cập nhập thông tin của bạn thành công",
+                                showHideTransition: 'slide',
+                                icon: 'success',
+                                position: 'bottom-right',
+                                hideAfter: 5000
+                            })
+                        },
+                        error: function() {
+                            console.log("error roi");
+                        }
+                    });
 
 
-                // });
+                });
             </script>
 
         </body>

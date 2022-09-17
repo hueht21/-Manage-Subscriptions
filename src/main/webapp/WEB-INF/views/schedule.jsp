@@ -84,7 +84,7 @@
             </div>
 
             <script>
-                $(document).on("click", ".classBtnRegister", function() {
+                $(document).unbind().on("click", ".classBtnRegister", function() {
                     event.preventDefault();
 
 
@@ -114,7 +114,8 @@
                                 hideAfter: 1000
 
                             })
-                            $("#content").load("/" + "register_calendar");
+
+                            //$("#content").load("/" + "register_calendar");
                         },
                         error: function() {
                             console.log("error rá»i");

@@ -581,7 +581,11 @@
                 let method = link.getAttribute('id');
                 console.log(method);
                 console.log("me thot day nay" + link);
+
                 $("#content").load("/" + method);
+                //location.reload("/" + method);
+
+
             }
         </script>
 
