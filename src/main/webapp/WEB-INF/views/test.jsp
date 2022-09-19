@@ -391,7 +391,9 @@
                                 <div class="col-12">
 
                                     <div class="card">
-                                        <div id="content" class="card-body"></div>
+                                        <div id="content" class="card-body">
+
+                                        </div>
                                         <!-- end card body-->
                                     </div>
                                     <!-- end card -->

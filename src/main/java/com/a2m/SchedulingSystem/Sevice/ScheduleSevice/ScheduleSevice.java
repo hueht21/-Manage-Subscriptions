@@ -22,10 +22,18 @@ public class ScheduleSevice {
 	public void insert(Register register) {
 		scheduleRepository.save(register);
 	}
+
 	// cai nay la của admin
 	public List<Register> getListSchedue() {
 
 		List<Register> listSchedue = scheduleRepository.findAllSchedue();
+		return listSchedue;
+	}
+
+	// cai nay la của admin lay ra thong tin lịch mà đã có thợ sửa
+	public List<Register> getListSchedueByEmployee() {
+
+		List<Register> listSchedue = scheduleRepository.findSchedueByEmployee();
 		return listSchedue;
 	}
 
@@ -57,9 +65,8 @@ public class ScheduleSevice {
 		return scheduleRepository.findAll();
 	}
 	// tim kiem thông tin khách hàng
-	
-	public Iterable<Register> getListByName(String name)
-	{
+
+	public Iterable<Register> getListByName(String name) {
 		return scheduleRepository.findByNameCustomer(name);
 	}
 //	public Register getScheduleById(Long id)
