@@ -9,7 +9,7 @@ import com.a2m.SchedulingSystem.Entity.User;
 
 
 @Service
-public class UserSevice {
+public class UserSevice{
 
 	@Autowired
 	UserRepos userRepos;

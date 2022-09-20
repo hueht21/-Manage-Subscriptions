@@ -29,9 +29,6 @@ public class User {
 	@Column(name = "PASSWORD")
 	private String pass;
 	
-//	@OneToOne(mappedBy = "user")
-//	private User user;
-	
 
 	@JsonIgnore
 	@ManyToMany(mappedBy = "listUser" , fetch = FetchType.EAGER)

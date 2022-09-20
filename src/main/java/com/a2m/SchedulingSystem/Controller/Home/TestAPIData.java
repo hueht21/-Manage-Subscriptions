@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.a2m.SchedulingSystem.Entity.Customer;
 import com.a2m.SchedulingSystem.Entity.Register;
 import com.a2m.SchedulingSystem.Entity.User;
 import com.a2m.SchedulingSystem.Sevice.Approve.ApproveSevice;
 import com.a2m.SchedulingSystem.Sevice.CustomerSevice.CustomerRepos;
+import com.a2m.SchedulingSystem.Sevice.CustomerSevice.CustomerSevice;
 import com.a2m.SchedulingSystem.Sevice.ScheduleSevice.ScheduleSevice;
 import com.a2m.SchedulingSystem.Sevice.UserSevice.UserSevice;
 
@@ -31,6 +34,9 @@ public class TestAPIData {
 	
 	@Autowired
 	ApproveSevice approveSevice; 
+	
+	@Autowired
+	CustomerSevice customerSevice;
 	
 	@GetMapping("")
 	public  Iterable<Register> getList()
@@ -61,11 +67,11 @@ public class TestAPIData {
 		//scheduleSevice.insert(register);
 		return register;
 	}
-	@PostMapping("/selectSchedue")
+	@GetMapping("/selectSchedue")
 	public List<Register> listRegiter()
 	{
 		
-		List<Register> list = scheduleSevice.getListSchedueUser();
+		List<Register> list = scheduleSevice.getListSchedueByEmployee();
 //		for (Integer id : approveSevice.getIdEmployee()) {
 //			
 //			System.out.println("id danh sach " + id);
@@ -78,5 +84,18 @@ public class TestAPIData {
 		//approveSevice.checkID();
 		return list;
 	}
-	//@GetMapping("")
+	
+	@PostMapping("/selectSchedueByName")
+	public ResponseEntity<?> listRegiterByName(@RequestBody String name)
+	{
+		System.out.println("name khach hnag" + name);
+		Iterable<Register> list = scheduleSevice.getListByName(name);
+		//System.out.println("danh sach" + list.size());
+		return ResponseEntity.ok(list);
+	}
+	@GetMapping("/customer")
+	public Iterable<Customer> getCustommer()
+	{
+		return customerSevice.getListCustomer();
+	}
 }

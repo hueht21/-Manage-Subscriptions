@@ -32,6 +32,8 @@ public class Customer {
 	@OneToOne
 	@JoinColumn(name = "ID_USER", referencedColumnName = "ID_USER")
 	public User user;
+	
+	
 
 	@OneToMany(mappedBy = "customer")
 	public Long getID() {

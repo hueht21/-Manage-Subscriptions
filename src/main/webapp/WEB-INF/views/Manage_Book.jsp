@@ -131,7 +131,7 @@
                                                         <c:choose>
                                                             <c:when test="${map.status=='0'}">
                                                                 <form method="POST" style="display: inline" action="/approved/${map.ID}">
-                                                                    <button class="badge badge-success ClassApprovedd" style="size: 10px !important ; border: 0; margin: 2px;">Approved</button>
+                                                                    <button class="badge badge-success ClassApprovedd" style="size: 10px !important ; border: 0; margin: 2px;">Approve</button>
 
                                                                 </form>
                                                                 <br />
