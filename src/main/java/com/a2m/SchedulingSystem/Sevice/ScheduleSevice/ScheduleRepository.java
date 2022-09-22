@@ -24,4 +24,8 @@ public interface ScheduleRepository extends CrudRepository<Register, Long> {
 	// lay ra danh sach đang dang kí (admin)
 	@Query(value = " SELECT * FROM schedule_fix WHERE `STATUS`= 1", nativeQuery = true)
 	List<Register> findSchedueByEmployee();
+	
+	// tim kiem theo status
+	@Query(value = " SELECT * FROM schedule_fix WHERE `STATUS` = ?", nativeQuery = true)
+	Iterable<Register> findByStatus(int status);
 }

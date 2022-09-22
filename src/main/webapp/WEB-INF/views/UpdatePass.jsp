@@ -24,7 +24,7 @@
                                             <span class="float-left m-2 mr-4"><img src="assets/images/users/avatar-2.jpg" style="height: 100px;" alt="" class="rounded-circle img-thumbnail"></span>
                                             <div class="media-body">
                                                 <h4 class="mt-1 mb-1 text-white">
-                                                    Personal information</h4>
+                                                    Xin chào</h4>
                                                 <h4 class="mt-1 mb-1 text-white">${customer.nameCustomer}</h4>
                                             </div>
                                             <!-- end media-body-->
@@ -52,22 +52,22 @@
                         <!-- Personal-Information -->
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title mt-0 mb-3">Seller Information</h4>
+                                <h4 class="header-title mt-0 mb-3">Thông tin cá nhân</h4>
 
 
                                 <hr>
 
                                 <div class="text-left">
-                                    <p class="text-muted"><strong>Full Name :</strong> <span class="ml-2">${customer.nameCustomer}</span></p>
-                                    <p class="text-muted"><strong>User Name :</strong> <span class="ml-2">${customer.user.userName}</span></p>
+                                    <p class="text-muted"><strong>Họ và tên :</strong> <span class="ml-2">${customer.nameCustomer}</span></p>
+                                    <p class="text-muted"><strong>User :</strong> <span class="ml-2">${customer.user.userName}</span></p>
 
-                                    <p class="text-muted"><strong>Mobile :</strong><span class="ml-2"> ${customer.numberPhone}</span></p>
+                                    <p class="text-muted"><strong>Số điện thoại :</strong><span class="ml-2"> ${customer.numberPhone}</span></p>
 
                                     <p class="text-muted"><strong>Email :</strong> <span class="ml-2">${customer.email}</span></p>
 
-                                    <p class="text-muted"><strong>Location :</strong> <span class="ml-2">Viet Nam</span></p>
+                                    <p class="text-muted"><strong>Vị trí :</strong> <span class="ml-2">Viet Nam</span></p>
 
-                                    <p class="text-muted"><strong>Languages :</strong>
+                                    <p class="text-muted"><strong>Ngôn ngữ :</strong>
                                         <span class="ml-2"> Vietnamese </span>
                                     </p>
                                     <p class="text-muted mb-0"><strong>Elsewhere :</strong>
@@ -94,21 +94,21 @@
                                     <div class="tab-pane show active" id="billing-information">
                                         <div class="row">
                                             <div class="col-lg-8">
-                                                <h4 class="mt-2">Change Password</h4>
+                                                <h4 class="mt-2">Đổi mật khẩu</h4>
                                                 <p class="text-muted mb-4">
-                                                    You can update your personal password information.</p>
+                                                    Bạn cần cập nhập mật khẩu của mình.</p>
 
                                                 <form:form action="updateCustomer" method="POST" modelAttribute="customerr">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="billing-first-name">Enter old password</label>
+                                                                <label for="billing-first-name">Nhập mật khẩu cũ</label>
                                                                 <form:input class="form-control" path="nameCustomer" type="password" id="billing-first-name"></form:input>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="billing-last-name">Enter your new password</label>
+                                                                <label for="billing-last-name">Nhập mật khẩu mới</label>
                                                                 <form:input class="form-control" path="email" type="password"></form:input>
                                                             </div>
                                                         </div>
@@ -118,7 +118,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label for="billing-phone">
-                                                                    Confirm password <span class="text-danger"></span></label>
+                                                                    Xác nhận mật khẩu <span class="text-danger"></span></label>
                                                                 <form:input class="form-control" path="numberPhone" type="password" id="billing-phone"></form:input>
                                                             </div>
                                                         </div>
@@ -129,7 +129,7 @@
                                                     <div class="row mt-4">
                                                         <!-- end col -->
                                                         <div class="text-sm-right">
-                                                            <input type="submit" class="btn btn-danger" value="Update" id="buttonRegister" />
+                                                            <input type="submit" class="btn btn-danger" value="Cập nhập" id="buttonRegister" />
 
                                                         </div>
                                                         <!-- end col -->

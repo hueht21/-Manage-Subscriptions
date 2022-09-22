@@ -56,33 +56,7 @@
                             </div>
                         </li>
 
-                        <li class="dropdown notification-list topbar-dropdown d-none d-lg-block">
-                            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" id="topbar-languagedrop" href="#" role="button" aria-haspopup="true" aria-expanded="false"> <img src="http://localhost:8080/assets/images/flags/us.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">English</span> <i class="mdi mdi-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu" aria-labelledby="topbar-languagedrop">
 
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <img src="http://localhost:8080/assets/images/flags/germany.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">German</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <img src="http://localhost:8080/assets/images/flags/italy.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Italian</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <img src="http://localhost:8080/assets/images/flags/spain.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Spanish</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <img src="http://localhost:8080/assets/images/flags/russia.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Russian</span>
-                                </a>
-
-                            </div>
-                        </li>
 
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" id="topbar-notifydrop" role="button" aria-haspopup="true" aria-expanded="false"> <i class="dripicons-bell noti-icon"></i>
@@ -226,7 +200,7 @@
                             <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" id="topbar-userdrop" href="#" role="button" aria-haspopup="true" aria-expanded="false"> <span class="account-user-avatar"> <img
 							src="http://localhost:8080/assets/images/users/avatar-1.jpg"
 							alt="user-image" class="rounded-circle">
-					</span> <span> <span class="account-user-name"> ${adminAccout.nameUser}</span> <span class="account-position">Account</span>
+					</span> <span> <span class="account-user-name"> ${adminAccout.nameUser}</span> <span class="account-position">Tài khoản</span>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown" aria-labelledby="topbar-userdrop">
@@ -258,8 +232,9 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="mdi mdi-logout mr-1"></i> <span>Logout</span>
+                                <a href="login" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-logout mr-1"></i>
+                                    <span>Logout</span>
                                 </a>
 
                             </div>
@@ -347,13 +322,13 @@
                 <div class="wrapper">
 
                     <!-- ========== Left Sidebar Start ========== -->
-                    <div class="left-side-menu left-side-menu-detached">
-
+                    <div class="left-side-menu left-side-menu-detached" style="margin-left: -20px;">
+                        <!-- 
                         <div class="leftbar-user">
                             <a href="javascript: void(0);">
                                 <img src="http://localhost:8080/assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
                             </a>
-                        </div>
+                        </div> -->
 
                         <!--- Sidemenu -->
                         <ul class="metismenu side-nav">
@@ -383,7 +358,7 @@
                     </div>
                     <!-- Left Sidebar End -->
 
-                    <div class="content-page">
+                    <div class="content-page" style="padding-top: 30px !important;">
                         <div class="content">
                             <!-- end page title -->
 
@@ -577,7 +552,7 @@
 
             function getCategoryIndex(index) {
 
-
+                // const someHandlerBinded = someHandler.bind(document);
                 const link = document.getElementsByName('ccccc')[index];
 
                 let method = link.getAttribute('id');

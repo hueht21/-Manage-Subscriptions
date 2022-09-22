@@ -51,7 +51,7 @@ public class CustomerContr {
 		User user = new User();
 		user.setID(6);
 		customer.setUser(user);
-		customerSevice.updateCustomer(customer);
+		//customerSevice.updateCustomer(customer);
 		
 		System.out.println("thông tin khách hàng up date" + customer.getID() + customer.getNameCustomer() + customer.getUser().getID());
 		HashMap<String, String> map = new HashMap<>();

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.a2m.SchedulingSystem.Entity.Customer;
 import com.a2m.SchedulingSystem.Entity.Register;
 import com.a2m.SchedulingSystem.Sevice.BookPending.BookPenSevice;
 import com.a2m.SchedulingSystem.Sevice.ScheduleSevice.ScheduleSevice;
@@ -47,7 +48,7 @@ public class BookPending {
 	public ResponseEntity<Object> deleteSchue(@PathVariable Long id)
 	{
 		System.out.println("lay id " + id);
-		//scheduleSevice.deleteSchue(id);
+		scheduleSevice.deleteSchue(id);
 		HashMap<String, String> map = new HashMap<>();
 	    map.put("key", "value");
 	    map.put("foo", "bar");
@@ -67,10 +68,12 @@ public class BookPending {
 	@PostMapping("/updateSchedule")
 	public ResponseEntity<Object> updateSchedule(@ModelAttribute Register register)
 	{
-		
-		
+		Long idd = (long) 1;
+		Customer customer = new Customer();
+		customer.setID(idd);
+		register.setCustomer(customer);
 		System.out.println("Id cua update " + register.getID() + "name " +  register.getNameCustomer() + register.getEmail());
-		//scheduleSevice.updateSchedule(register);
+		scheduleSevice.updateSchedule(register);
 		HashMap<String, String> map = new HashMap<>();
 	    map.put("key", "value");
 	    map.put("foo", "bar");

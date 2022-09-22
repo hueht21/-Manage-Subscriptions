@@ -69,6 +69,11 @@ public class ScheduleSevice {
 	public Iterable<Register> getListByName(String name) {
 		return scheduleRepository.findByNameCustomer(name);
 	}
+	
+	// lay ra tat ca lic co trang thai
+	public Iterable<Register> getListByStatus(int sttus) {
+		return scheduleRepository.findByStatus(sttus);
+	}
 //	public Register getScheduleById(Long id)
 //	{
 //		

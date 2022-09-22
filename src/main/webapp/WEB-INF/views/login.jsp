@@ -42,11 +42,11 @@
                                             <p class="text-muted mb-4">Enter your user and password to access admin panel.</p>
                                         </div>
 
-                                        <form:form action="/j_spring_security_check" method="POST" modelAttribute="userlogin">
+                                        <form:form action="/home" method="POST" modelAttribute="userlogin">
 
                                             <div class="form-group">
                                                 <label for="emailaddress">User address</label>
-                                                <form:input class="form-control" name="username" path="userName" type="text" id="emailaddress" required="" placeholder="Enter your user"></form:input>
+                                                <form:input class="form-control" name="username" path="userName" type="text" required="" placeholder="Enter your user"></form:input>
                                             </div>
 
                                             <div class="form-group">
@@ -63,7 +63,7 @@
                                             </div>
 
                                             <div class="form-group mb-0 text-center">
-                                                <input class="btn btn-primary" type="submit"> Log In
+                                                <input class="btn btn-primary" type="submit" value="Đăng nhập">
                                             </div>
 
                                         </form:form>

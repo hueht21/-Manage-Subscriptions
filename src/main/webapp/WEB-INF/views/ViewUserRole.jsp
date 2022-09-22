@@ -27,34 +27,16 @@
                                         <a href="javascript:void(0);" class="dropdown-item">Action</a>
                                     </div>
                                 </div>
-                                <h4 class="header-title mb-4">Role</h4>
+                                <h4 class="header-title mb-4">Tài khoản</h4>
 
-                                <c:forEach var="map" items="${RoleMenu}" varStatus="myIndex">
+                                <c:forEach var="map" items="${UserCustomer}" varStatus="myIndex">
 
                                     <div class="media mt-3">
-                                        <input type="radio" name="fav_language" style="margin-top: 13px; width: 16px; height: 16px;" onclick="clickUser(${map.ID})">
-                                        <img class="mr-3 rounded-circle" src="assets/images/users/avatar-5.jpg" width="60" alt="Generic placeholder image" style="margin-left: 10px;">
+                                        <input type="radio" name="fav_language" style="margin-top: 13px" onclick="clickUserRole(${map.user.ID})">
+                                        <img class="mr-3 rounded-circle" src="assets/images/users/avatar-5.jpg" width="40" alt="Generic placeholder image" style="margin-left: 10px;">
                                         <div class="media-body">
-                                            <h5 class="mt-0 mb-1">${map.nameRole}</h5>
-                                            <c:choose>
-                                                <c:when test="${map.ID=='1'}">
-                                                    <span class="font-13">Nhân viên quản lý lịch đặt</span>
-                                                    <br />
-                                                </c:when>
-                                                <c:when test="${map.ID=='2'}">
-                                                    <span class="font-13">Nhân viên quản lý hệ thống</span>
-                                                    <br />
-                                                </c:when>
-                                                <c:when test="${map.ID=='3'}">
-                                                    <span class="font-13">Khách hàng</span>
-                                                    <br />
-                                                </c:when>
-                                                <c:when test="${map.ID=='4'}">
-                                                    <span class="font-13">Thợ sửa</span>
-                                                    <br />
-                                                </c:when>
-                                            </c:choose>
-
+                                            <h5 class="mt-0 mb-1">${map.nameCustomer}</h5>
+                                            <span class="font-13">${map.email}</span>
                                         </div>
                                     </div>
                                 </c:forEach>
@@ -98,7 +80,7 @@
                                     <a href="javascript:void(0);" class="dropdown-item">Action</a>
                                 </div>
                             </div>
-                            <h4 class="header-title mb-2">Menu</h4>
+                            <h4 class="header-title mb-2">Role</h4>
 
                             <div class="todoapp" id="menucard">
 
@@ -115,11 +97,10 @@
             </div>
 
             <script>
-                function clickUser(idUser) {
+                function clickUserRole(idUser) {
                     console.log("day la id uêr" + idUser);
 
-
-                    $("#menucard").load("/item_menu/" + idUser);
+                    $("#menucard").load("/item_role/" + idUser);
                 }
             </script>
         </body>

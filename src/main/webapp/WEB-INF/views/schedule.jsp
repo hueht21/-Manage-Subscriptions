@@ -24,7 +24,7 @@
         <body>
 
             <div class="card-body">
-                <h4 class="header-title">Register</h4>
+                <h4 class="header-title">Đăng ký lịch sửa</h4>
 
                 <div class="tab-content">
                     <form:form action="insertSche" method="POST" modelAttribute="register">
@@ -32,46 +32,52 @@
                             <div class="col-lg-6">
 
                                 <div class="form-group mb-3">
-                                    <label for="simpleinput">First and last name </label>
-                                    <form:input type="text" id="nameClient" class="form-control" path="nameCustomer" placeholder="Input name"></form:input>
-                                    <span id="username_error"></span>
+                                    <label for="simpleinput">Họ và tên </label>
+                                    <form:input type="text" id="nameClient" class="form-control" path="nameCustomer" placeholder="Nhập tên khách hàng"></form:input>
+                                    <span style="color: red;" id="username_error"></span>
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label for="example-email">Email </label>
-                                    <form:input type="email" id="idEmail" name="example-email" class="form-control" placeholder="Email" path="email"></form:input>
+                                    <form:input type="email" id="idEmail" name="example-email" class="form-control" placeholder="Nhập Email" path="email"></form:input>
+                                    <span style="color: red;" id="email_error"></span>
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="example-palaceholder">Number Phone</label>
-                                    <form:input type="text" id="idPhone" class="form-control" placeholder="Number phone" path="numberPhone"></form:input>
+                                    <label for="example-palaceholder">Số điện thoại</label>
+                                    <form:input type="text" id="idPhone" class="form-control" placeholder="Nhập số điện thoại" path="numberPhone"></form:input>
+                                    <span style="color: red;" id="phone_error"></span>
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="example-textarea">Address</label>
+                                    <label for="example-textarea">Địa chỉ</label>
                                     <form:textarea class="form-control" id="idAddress" rows="5" path="address"></form:textarea>
+                                    <span style="color: red;" id="address_error"></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
-                                    <label for="example-date">Date</label>
+                                    <label for="example-date">Ngày</label>
                                     <form:input class="form-control" id="idDate" type="date" name="date" path="dateSchedule"></form:input>
+                                    <span style="color: red;" id="date_error"></span>
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="example-time">Time</label>
+                                    <label for="example-time">Thời gian</label>
                                     <form:input class="form-control" id="idTime" type="time" name="time" path="dateTime"></form:input>
+                                    <span style="color: red;" id="time_error"></span>
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="example-textarea">Damaged condition</label>
+                                    <label for="example-textarea">Ghi chú tình trạng hỏng</label>
                                     <form:textarea class="form-control" id="idNote" rows="5" path="note"></form:textarea>
+
                                 </div>
                             </div>
                             <!-- end col -->
                         </div>
 
-                        <input type="submit" value="Register" id="buttonRegister" class="classBtnRegister" />
+                        <input type="submit" value="Đăng ký" id="buttonRegister" class="classBtnRegister" />
                     </form:form>
 
                     <!-- end preview-->
@@ -84,54 +90,102 @@
             </div>
 
             <script>
+                var check = 0;
                 $(document).unbind().on("click", ".classBtnRegister", function() {
                     event.preventDefault();
-
-
                     form = $(this).parents('form');
-                    console.log("day la ror " + "day la form" + form)
                     console.log("day la urrl " + form.attr('action'))
 
-                    $.ajax({
-                        // CÃ¡ch láº¥y url trong form báº±ng cÃ¡ch lá»c thuá»c tÃ­nh action
-                        url: "http://localhost:8080/insertSche",
-                        type: 'POST',
-                        dataType: 'json',
+                    var name = document.getElementById("nameClient").value;
+                    var email = document.getElementById("idEmail").value.indexOf("@");
+                    var phone = document.getElementById("idPhone").value;
+                    var address = document.getElementById("idAddress").value;
+                    var date = document.getElementById("idDate").value;
+                    var dateTime = document.getElementById("idTime").value;
 
-                        // táº¥t cáº£ nhá»¯ng gÃ¬ Äiá»n trong form sáº½ truyá»n vÃ o data báº±ng hÃ m serialize()
-                        data: form.serialize(),
-                        //console.log("day la urrl " + form.attr('action'))
-                        success: function() {
-                            console.log("hahahah")
-                                // row.remove();
-                                // tableClassroom.draw();
-                            $.toast({
-                                heading: 'Notify',
-                                text: "Delete successfully",
-                                showHideTransition: 'slide',
-                                icon: 'success',
-                                position: 'bottom-right',
-                                hideAfter: 1000
 
-                            })
 
-                            //$("#content").load("/" + "register_calendar");
-                        },
-                        error: function() {
-                            console.log("error rá»i");
-                            // $.toast({
-                            //     heading: 'XÃ³a tháº¥t báº¡i!',
-                            //     text: 'Vui lÃ²ng thao tÃ¡c láº¡i! CÃ³ sá»± cá» hÃ£y liÃªn há» Äá»i ká»¹ thuáº­t',
-                            //     showHideTransition: 'slide',
-                            //     icon: 'error',
-                            //     position: 'bottom-right',
-                            //     hideAfter: 5000
-                            // })
-                        }
-                    });
+
+                    checkNull(name, "username_error", "Tên không được để trống");
+                    //checkNull(email, "email_error", "Email cannot be blank");
+                    checkNull(phone, "phone_error", "Số điện thoại không được để trống");
+                    checkNull(address, "address_error", "Địa chỉ không được để trống");
+                    checkNull(date, "date_error", "Ngày không được để trống");
+                    checkNull(dateTime, "time_error", "Thời gian không được để trống");
+                    console.log("day la time " + dateTime);
+                    if (name != "" && email != "" && phone != "" && address != "" && date != "" && dateTime != "") {
+                        var curDate = new Date();
+                        var curDay = curDate.getDate();
+                        var curMonth = curDate.getMonth() + 1;
+                        var curYear = curDate.getFullYear();
+
+                        var ntn = curYear + "-" + curMonth + "-" + curDay;
+                        //if()
+                        console.log("ngay " + ntn)
+                            //check = 0;
+                    }
+                    if (email == -1) {
+                        document.getElementById("email_error").innerHTML = "Sai định dạng Email";
+                        check = 1;
+                    } else if (email >= 0) {
+                        document.getElementById("email_error").innerHTML = "";
+                        check = 0;
+                    }
+                    if (phone.length < 9) {
+                        document.getElementById("phone_error").innerHTML = "Số điện thoại phải trên 11 số";
+                        check = 1;
+                    } else {
+                        check = 0;
+                    }
+
+                    if (check == 0 && email != -1) {
+                        $.ajax({
+                            url: "http://localhost:8080/insertSche",
+                            type: 'POST',
+                            dataType: 'json',
+                            data: form.serialize(),
+                            success: function() {
+                                console.log("hahahah")
+                                $.toast({
+                                    heading: 'Thông báo',
+                                    text: "Đăng ký thành công",
+                                    showHideTransition: 'slide',
+                                    icon: 'success',
+                                    position: 'bottom-right',
+                                    hideAfter: 1000
+
+                                })
+
+                                //$("#content").load("/" + "register_calendar");
+                            },
+                            error: function() {
+                                console.log("Lỗi rồi");
+                                // $.toast({
+                                //     heading: 'XÃ³a tháº¥t báº¡i!',
+                                //     text: 'Vui lÃ²ng thao tÃ¡c láº¡i! CÃ³ sá»± cá» hÃ£y liÃªn há» Äá»i ká»¹ thuáº­t',
+                                //     showHideTransition: 'slide',
+                                //     icon: 'error',
+                                //     position: 'bottom-right',
+                                //     hideAfter: 5000
+                                // })
+                            }
+                        });
+
+                    }
+
 
 
                 });
+
+                function checkNull(values, idtag, mess) {
+                    if (values == "") {
+                        console.log("no dang vao day" + values);
+                        document.getElementById(idtag).innerHTML = mess;
+                        check = 1;
+                    } else {
+                        document.getElementById(idtag).innerHTML = "";
+                    }
+                }
             </script>
 
         </body>

@@ -1,5 +1,6 @@
 package com.a2m.SchedulingSystem.Sevice.CustomerSevice;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,9 @@ public class CustomerSevice {
 	{
 		
 		return customerRepos.findAll();
+	}
+	public List<Customer> getListCustom()
+	{
+		return customerRepos.findListUserCustom();
 	}
 }

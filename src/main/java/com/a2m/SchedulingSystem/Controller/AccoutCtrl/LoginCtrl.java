@@ -16,9 +16,9 @@ public class LoginCtrl {
 		model.addAttribute("userlogin", new User());
 		return "login";
 	}
-	@PostMapping("/j_spring_security_check")
-	public String getHome()
-	{
-		return "home";
-	}
+//	@PostMapping("/j_spring_security_check")
+//	public String getHome()
+//	{
+//		return "home";
+//	}
 }

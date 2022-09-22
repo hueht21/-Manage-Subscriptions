@@ -17,7 +17,7 @@
                             <div class="card-body">
                                 <div class="row mb-2">
                                     <div class="col-lg-4">
-                                        <h4 class="page-title">Manage registration schedule </h4>
+                                        <h4 class="page-title">Quản lý lịch đặt </h4>
                                     </div>
                                     <!-- end col-->
                                 </div>
@@ -25,31 +25,25 @@
                                     <div class="col-lg-8">
                                         <form:form class="form-inline" method="GET" modelAttribute="listSchedueAndCustomer">
                                             <div class="form-group mb-2">
-                                                <label for="inputPassword2" class="sr-only">Search</label>
-                                                <form:input type="text" class="form-control" id="inputSearchByname" path="customer.nameCustomer" placeholder="Search..."></form:input>
+                                                <label for="inputPassword2" class="sr-only">Tìm kiếm</label>
+                                                <form:input type="text" class="form-control" id="inputSearchByname" path="customer.nameCustomer" placeholder="Nhập tên"></form:input>
 
                                             </div>
-                                            <input style="margin-left: 10px;" type="submit" class="btn btn-danger mb-2 mr-2 btnSearch" value="Search">
+                                            <input style="margin-left: 5px;" type="submit" class="btn btn-danger mb-2 mr-2 btnSearch" value="Tìm kiếm">
                                             <div class="form-group mx-sm-3 mb-2">
-                                                <label for="status-select" class="mr-2">Status</label>
+
                                                 <select class="custom-select" id="status-select">
-                                                    <option selected="">Choose...</option>
-                                                    <option value="1">Paid</option>
-                                                    <option value="2">Awaiting Authorization</option>
-                                                    <option value="3">Payment failed</option>
-                                                    <option value="4">Cash On Delivery</option>
-                                                    <option value="5">Fulfilled</option>
-                                                    <option value="6">Unfulfilled</option>
+                                                    <option value="">Trạng thái</option>
+                                                    <option value="0">Đang chờ phê duyệt</option>
+                                                    <option value="1">Đã phê duyệt</option>
                                                 </select>
                                             </div>
+                                            <button style="margin-left: 10px;" type="submit" class="btn btn-danger mb-2 mr-2" id="btnStatus" value="Search"> Tìm kiếm</button>
+
                                         </form:form>
+
                                     </div>
-                                    <div class="col-lg-4">
-                                        <div class="text-lg-right">
-                                            <button type="button" class="btn btn-danger mb-2 mr-2"><i class="mdi mdi-basket mr-1"></i> Add New Order</button>
-                                            <button type="button" class="btn btn-light mb-2">Export</button>
-                                        </div>
-                                    </div>
+
                                     <!-- end col-->
                                 </div>
 
@@ -57,18 +51,18 @@
                                     <table class="table table-centered mb-0">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th>Order ID</th>
+                                                <th>ID</th>
                                                 <!-- <th>Name Customer</th> -->
-                                                <th style="min-width: 10vh; !important ">Date</th>
-                                                <th>Time</th>
-                                                <th>Name </th>
+                                                <th style="min-width: 10vh; !important ">Ngày</th>
+                                                <th>Thời gian</th>
+                                                <th>Tên </th>
                                                 <th>User</th>
-                                                <th style="min-width: 10vh; !important ">Email</th>
-                                                <th>Number Phone</th>
-                                                <th>Address</th>
-                                                <th>Order Status</th>
-                                                <th>Note</th>
-                                                <th style="width: 125px;">Action</th>
+                                                <!-- <th style="min-width: 10vh; !important ">Email</th> -->
+                                                <th>Số điện thoại</th>
+                                                <th>Địa chỉ</th>
+                                                <th>Trạng thái</th>
+                                                <th>Lưu ý</th>
+                                                <th style="width: 125px;">Hoạt động</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -91,9 +85,9 @@
                                                     <td>
                                                         ${map.customer.user.userName}
                                                     </td>
-                                                    <td>
+                                                    <!-- <td>
                                                         ${map.email}
-                                                    </td>
+                                                    </td> -->
                                                     <td>
                                                         ${map.numberPhone}
                                                     </td>
@@ -119,7 +113,6 @@
                                                         ${map.note}
                                                     </td>
                                                     <td>
-                                                        <a href="javascript:void(0);" name="nameEdit" class="action-icon" onclick="getScheuleIndex( ${myIndex.index}  )" id="${map.ID}"> <i class="mdi mdi-square-edit-outline"></i></a>
 
                                                         <form method="POST" style="display: inline" action="/deleteSchedle/${map.ID}">
                                                             <button type="submit" name="btnDeleteSchedule" style="background-color: #ffffff; border: 0px;" id="idBtnDelete" class="action-icon ClassBtnDeleteID"> 
@@ -130,6 +123,8 @@
 
                                                         <c:choose>
                                                             <c:when test="${map.status=='0'}">
+                                                                <a href="javascript:void(0);" name="nameEdit" class="action-icon" onclick="getScheuleIndex( ${myIndex.index}  )" id="${map.ID}"> <i class="mdi mdi-square-edit-outline"></i></a>
+
                                                                 <form method="POST" style="display: inline" action="/approved/${map.ID}">
                                                                     <button class="badge badge-success ClassApprovedd" style="size: 10px !important ; border: 0; margin: 2px;">Approve</button>
 
@@ -161,11 +156,9 @@
             </body>
             <script>
                 // xoa lich
-
-                $('.ClassBtnDeleteID').unbind().click(function(e) {
+                $('#idBtnDelete').unbind().click(function(e) {
                     event.preventDefault();
                     form = $(this).parents('form');
-                    //console.log("day la ror " + row + "day la form" + form)
                     console.log("day la urrl " + form.attr('action'))
                     $.ajax({
                         url: form.attr('action'),
@@ -176,8 +169,8 @@
                         success: function() {
                             console.log("hahahah")
                             $.toast({
-                                heading: 'Notify',
-                                text: "Delete successfully",
+                                heading: 'Thông Báo',
+                                text: "Xoá thành công",
                                 showHideTransition: 'slide',
                                 icon: 'success',
                                 position: 'bottom-right',
@@ -191,36 +184,6 @@
                     });
 
                 })
-
-
-                // $(document).unbind().on("click", "#idBtnDelete", function() {
-                //     event.preventDefault();
-                //     form = $(this).parents('form');
-                //     //console.log("day la ror " + row + "day la form" + form)
-                //     console.log("day la urrl " + form.attr('action'))
-                //     $.ajax({
-                //         url: form.attr('action'),
-                //         type: 'POST',
-                //         dataType: 'json',
-                //         data: form.serialize(),
-
-                //         success: function() {
-                //             console.log("hahahah")
-                //             $.toast({
-                //                 heading: 'Notify',
-                //                 text: "Delete successfully",
-                //                 showHideTransition: 'slide',
-                //                 icon: 'success',
-                //                 position: 'bottom-right',
-                //                 hideAfter: 2000
-                //             });
-                //             $("#content").load("/" + "book_pending");
-                //         },
-                //         error: function() {
-                //             console.log("error roi");
-                //         }
-                //     });
-                // });
             </script>
             <script>
                 // xoá lịch đặt
@@ -240,7 +203,7 @@
                         success: function() {
                             console.log("hahahah")
                             $.toast({
-                                heading: 'Notify',
+                                heading: 'Thông báo',
                                 text: "Delete successfully",
                                 showHideTransition: 'slide',
                                 icon: 'success',
@@ -259,7 +222,7 @@
                 $(document).on("click", ".btnSearch", function() {
                     event.preventDefault();
                     var valueName = document.getElementById("inputSearchByname").value;
-                    //console.log("đây là ten" + )
+                    console.log("đây là vao ten");
                     if (valueName == "") {
                         console.log("đang nulll");
                         $("#content").load("/manage_book");
@@ -269,6 +232,18 @@
 
                 });
                 //
+                $(document).on("click", "#btnStatus", function() {
+                    event.preventDefault();
+                    var valueName = document.getElementById("status-select").value;
+                    console.log("đây là vao select " + valueName);
+                    if (valueName == "") {
+                        console.log("đang nulll");
+                        $("#content").load("/manage_book");
+                    } else {
+                        $("#content").load("/searchStatus/" + valueName);
+                    }
+
+                });
 
                 function getScheuleIndex(index) {
 

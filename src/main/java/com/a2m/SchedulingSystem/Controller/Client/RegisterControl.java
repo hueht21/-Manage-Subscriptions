@@ -28,7 +28,7 @@ public class RegisterControl {
 	
 
 	
-	/// vào trang đăng kí
+	/// vào trang đăng kí lịh dat
 	@GetMapping("/schedule")
 	public String getSchedule(Model model) {
 		model.addAttribute("register", new Register());

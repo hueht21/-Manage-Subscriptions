@@ -112,8 +112,8 @@
                                     // row.remove();
                                     // tableClassroom.draw();
                                 $.toast({
-                                    heading: 'Notify',
-                                    text: "Delete successfully",
+                                    heading: 'Thông báo',
+                                    text: "Cập nhập thông tin thành công",
                                     showHideTransition: 'slide',
                                     icon: 'success',
                                     position: 'bottom-right',

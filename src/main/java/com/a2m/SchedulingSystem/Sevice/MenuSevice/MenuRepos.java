@@ -14,5 +14,8 @@ public interface MenuRepos extends CrudRepository<Menu, Long> {
 	
 //	@Query(value = " SELECT * FROM menu INNER JOIN user_menu ON menu.ID_MENU = user_menu.ID_MENU WHERE user_menu.ID_USER = ?" , nativeQuery = true)
 //	List<Menu> findByIdNotUser(Long id);
+	
+	@Query(value = "SELECT * FROM menu INNER JOIN user_menu ON menu.ID_MENU = user_menu.ID_MENU WHERE user_menu.ID_USER = ?", nativeQuery = true)
+	List<Menu> findMenuRole(Long id);
 
 }

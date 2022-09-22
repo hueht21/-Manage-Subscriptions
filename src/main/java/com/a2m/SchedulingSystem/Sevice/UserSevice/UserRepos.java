@@ -16,8 +16,8 @@ public interface UserRepos extends JpaRepository<User, Long> {
 	@Query(value = " SELECT customer.NAME_CUSTOMER FROM user INNER JOIN customer ON user.ID_USER = customer.ID_USER WHERE user.ID_USER = ?" , nativeQuery = true)
 	String findNameById(Long id);
 	
-	
-	User findByUserName(String userName);
+	@Query(value = "SELECT * FROM user WHERE USER_NAME = ?" , nativeQuery = true)
+	User findByUserName(String userName, String Pass);
 	
 	
 	

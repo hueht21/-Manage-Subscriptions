@@ -17,7 +17,7 @@
                         <div class="card-body">
                             <div class="row mb-2">
                                 <div class="col-lg-4">
-                                    <h4 class="page-title">List of calendars awaiting approval </h4>
+                                    <h4 class="page-title">Danh sách lịch thợ sửa </h4>
                                 </div>
                                 <!-- end col-->
                             </div>
@@ -26,15 +26,15 @@
                                 <table class="table table-centered mb-0">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>Order ID</th>
-                                            <th style="min-width: 10vh; !important ">Date</th>
-                                            <th>Date Time</th>
-                                            <th>Name </th>
+                                            <th>ID</th>
+                                            <th style="min-width: 10vh; !important ">Ngày</th>
+                                            <th>Thời gian</th>
+                                            <th>Tên </th>
                                             <th>User</th>
-                                            <th>Number Phone</th>
-                                            <th>Name Employee</th>
-                                            <th>Address</th>
-                                            <th>Note</th>
+                                            <th>SDT</th>
+                                            <th>Tên thợ sửa</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Ghi chú</th>
                                         </tr>
                                     </thead>
                                     <tbody>

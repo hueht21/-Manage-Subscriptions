@@ -14,12 +14,8 @@
 
             <div id="products-datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                 <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <div class="dataTables_length" id="products-datatable_length"><label>Display <select class="custom-select custom-select-sm ml-1 mr-1"><option value="5">5</option><option value="10">10</option><option value="20">20</option><option value="-1">All</option></select> products</label></div>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div id="products-datatable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="products-datatable"></label></div>
-                    </div>
+
+                    <h4 class="page-title">Lịch đã đăng ký </h4>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
@@ -27,14 +23,14 @@
                             <thead class="thead-light">
                                 <tr role="row">
 
-                                    <th class="all sorting_asc" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 120.8px;" aria-sort="ascending" aria-label="Product: activate to sort column descending">Customer</th>
-                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 57.8px;" aria-label="Category: activate to sort column ascending">Time</th>
-                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 100.8px;" aria-label="Added Date: activate to sort column ascending">Date</th>
-                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 50.8px;" aria-label="Price: activate to sort column ascending">Email</th>
-                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 116.8px;" aria-label="Quantity: activate to sort column ascending">Phone</th>
-                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 94.8px;" aria-label="Status: activate to sort column ascending">Address</th>
-                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 94.8px;" aria-label="Status: activate to sort column ascending">Note</th>
-                                    <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 94.8px;" aria-label="Status: activate to sort column ascending">Status</th>
+                                    <th tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 120.8px;" aria-sort="ascending" aria-label="Product: activate to sort column descending">Tên khách hàng</th>
+                                    <th tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 57.8px;" aria-label="Category: activate to sort column ascending">Thời gian</th>
+                                    <th tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 100.8px;" aria-label="Added Date: activate to sort column ascending">Ngày</th>
+                                    <!-- <th tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 50.8px !important;" aria-label="Price: activate to sort column ascending">Email</th> -->
+                                    <th tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 116.8px;" aria-label="Quantity: activate to sort column ascending">Số điện thoại</th>
+                                    <th tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 94.8px;" aria-label="Status: activate to sort column ascending">Địa chỉ</th>
+                                    <th tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 94.8px;" aria-label="Status: activate to sort column ascending">Ghi chú</th>
+                                    <th tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 94.8px;" aria-label="Status: activate to sort column ascending">Trạng thái</th>
                                     <th style="width: 85.6px; display: none;" class="sorting_disabled" rowspan="1" colspan="1" aria-label="Action">Action</th>
                                 </tr>
                             </thead>
@@ -55,9 +51,9 @@
                                         <td>
                                             ${map.dateSchedule}
                                         </td>
-                                        <td>
+                                        <!-- <td>
                                             ${map.email}
-                                        </td>
+                                        </td> -->
 
                                         <td>
                                             ${map.numberPhone}

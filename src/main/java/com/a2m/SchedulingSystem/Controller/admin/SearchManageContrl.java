@@ -44,4 +44,20 @@ public class SearchManageContrl {
 		
 		return "Manage_Book";
 	}
+	
+	@GetMapping("/searchStatus/{status}")
+	public String listRegiterByStatus(@PathVariable int status, Model model)
+	{
+		System.out.println("status khach hnag" + status);
+		
+		Iterable<Register> list = scheduleSevice.getListByStatus(status);
+		CustomerAndListSchedule customerAndListSchedule = new CustomerAndListSchedule();
+		customerAndListSchedule.setListRegisters(list);
+		customerAndListSchedule.setCustomer(new Customer());
+
+		
+		model.addAttribute("listSchedueAndCustomer", customerAndListSchedule);
+		
+		return "Manage_Book";
+	}
 }

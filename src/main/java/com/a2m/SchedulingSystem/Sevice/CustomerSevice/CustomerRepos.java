@@ -21,4 +21,8 @@ public interface CustomerRepos  extends CrudRepository<Customer, Long>{
 	// lấy ra id có số lần đặt ít nhất
 	@Query(value = "SELECT ddcc.ID_EMPLOYEE FROM (SELECT COUNT(ID_EMPLOYEE) AS SoLan, ID_EMPLOYEE FROM schedule_fix WHERE ID_EMPLOYEE IS NOT NULL GROUP BY ID_EMPLOYEE ORDER BY SoLan ASC LIMIT 1) ddcc", nativeQuery = true)
 	Integer findLimitID();
+	
+	//lay ra danh sach nhan vien user
+	@Query(value = "SELECT * FROM user INNER JOIN customer ON user.ID_USER = customer.ID_USER", nativeQuery = true)
+	List<Customer> findListUserCustom();
 }

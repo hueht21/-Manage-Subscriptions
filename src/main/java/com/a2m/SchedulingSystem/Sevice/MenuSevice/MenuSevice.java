@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.a2m.SchedulingSystem.Entity.Menu;
+import com.a2m.SchedulingSystem.Entity.Role;
+import com.a2m.SchedulingSystem.Sevice.RoleSevice.RoleRepos;
 
 @Service
 public class MenuSevice {
@@ -14,6 +16,9 @@ public class MenuSevice {
 	
 	@Autowired
 	MenuRepos menuRepos;
+	
+	@Autowired
+	RoleRepos roleRepos;
 	
 	// lay ra danh sach menu cua user
 	public List<Menu> listMenuUser(Long id)
@@ -39,5 +44,23 @@ public class MenuSevice {
 		}
 		return list;
 	}
+	// lay ra id user cua role
+	public Long getIdUserRole(Long idRole)
+	{
+		return roleRepos.findIDUserRole(idRole);
+	}
+	// lay ra dnah sach menu da co cua user
+	public List<Menu> listMenuRole(Long idRole)
+	{
+		return menuRepos.findMenuRole(getIdUserRole(idRole));
+	}
+	
+	// lay ra danh sach chưa có của userrole
+	public List<Menu> getListNoMenu(Long idRole)
+	{
+		return getMenuSelect(getIdUserRole(idRole));
+	}
+	
+
 	
 }

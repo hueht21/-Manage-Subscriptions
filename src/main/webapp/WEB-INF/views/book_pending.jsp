@@ -16,7 +16,7 @@
                         <div class="card-body">
                             <div class="row mb-2">
                                 <div class="col-lg-4">
-                                    <h4 class="page-title">List of calendars awaiting approval </h4>
+                                    <h4 class="page-title">Danh sách lịch đang chờ phê duyệt </h4>
                                 </div>
                                 <!-- end col-->
                             </div>
@@ -25,17 +25,17 @@
                                 <table class="table table-centered mb-0">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>Order ID</th>
-                                            <th style="min-width: 10vh; !important ">Date</th>
-                                            <th>Date Time</th>
-                                            <th>Name </th>
+                                            <th>ID</th>
+                                            <th style="min-width: 10vh; !important ">Ngày</th>
+                                            <th>Thời gian</th>
+                                            <th>Tên </th>
                                             <th>User</th>
-                                            <th style="min-width: 10vh; !important ">Email</th>
-                                            <th>Number Phone</th>
-                                            <th>Address</th>
-                                            <th>Order Status</th>
-                                            <th>Note</th>
-                                            <th style="width: 50px;">Action</th>
+                                            <!-- <th style="min-width: 10vh; !important ">Email</th> -->
+                                            <th>Số điện thoại</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Trạng thái</th>
+                                            <th>Ghi chú</th>
+                                            <th style="width: 50px;">Hành động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -58,9 +58,9 @@
                                                 <td>
                                                     ${map.customer.user.userName}
                                                 </td>
-                                                <td>
+                                                <!-- <td>
                                                     ${map.email}
-                                                </td>
+                                                </td> -->
                                                 <td>
                                                     ${map.numberPhone}
                                                 </td>
@@ -78,7 +78,7 @@
                                                             <br />
                                                         </c:otherwise>
                                                     </c:choose> -->
-                                                    <span class="badge badge-info-lighten">Awaiting Approval</span>
+                                                    <span class="badge badge-info-lighten">Đang chờ phê duyệt</span>
                                                     <br />
 
                                                     <!-- <h5><span class="badge badge-info-lighten">Shipped</span></h5> -->
@@ -104,7 +104,7 @@
                                                     <c:choose>
                                                         <c:when test="${map.status=='0'}">
                                                             <form method="POST" style="display: inline" action="/approved/${map.ID}">
-                                                                <button class="badge badge-success ClassApproved" style="size: 10px !important ; border: 0; margin: 2px;">Acceptance</button>
+                                                                <button class="badge badge-success ClassApproved" style="size: 10px !important ; border: 0; margin: 2px;">Phê duyệt</button>
 
                                                             </form>
                                                             <br />
@@ -145,8 +145,8 @@
                     success: function() {
                         console.log("hahahah")
                         $.toast({
-                            heading: 'Notify',
-                            text: "Delete successfully",
+                            heading: 'Thông báo',
+                            text: "Xoá thành công",
                             showHideTransition: 'slide',
                             icon: 'success',
                             position: 'bottom-right',
