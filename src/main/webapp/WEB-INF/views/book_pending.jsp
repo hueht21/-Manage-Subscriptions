@@ -178,8 +178,8 @@
                         console.log("hahahah")
 
                         $.toast({
-                            heading: 'Notify',
-                            text: "Delete successfully",
+                            heading: 'Thông báo',
+                            text: "Lích đã được phê duyệt",
                             showHideTransition: 'slide',
                             icon: 'success',
                             position: 'bottom-right',

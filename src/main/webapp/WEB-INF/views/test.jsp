@@ -346,7 +346,15 @@
                                     </a>
                                 </li>
                             </c:forEach>
+                            <li class="side-nav-item mm-active">
+                                <a name="ccccc" class="side-nav-link " href="login">
+                                    <i class="uil-store"></i>
+                                    <span>
+                                   Đăng xuất
+                                </span>
 
+                                </a>
+                            </li>
                         </ul>
 
                         <!-- end Help Box -->

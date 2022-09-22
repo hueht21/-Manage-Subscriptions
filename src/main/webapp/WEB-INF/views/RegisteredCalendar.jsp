@@ -68,11 +68,11 @@
 
                                             <c:choose>
                                                 <c:when test="${map.status=='0'}">
-                                                    <span class="badge badge-success">Awaiting Approval</span>
+                                                    <span class="badge badge-success">Đang chờ phê duyệt</span>
                                                     <br />
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <span class="badge badge-danger">Approved</span>
+                                                    <span class="badge badge-danger">Đã phê duyệt</span>
                                                     <br />
                                                 </c:otherwise>
                                             </c:choose>

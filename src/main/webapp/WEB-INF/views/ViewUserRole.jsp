@@ -57,7 +57,7 @@
                                 <div class="media-body">
                                     <h2 class="mt-0"><i class="mdi mdi-bullhorn-outline"></i>&nbsp;</h2>
                                     <h3 class="m-0 font-weight-normal cta-box-title">
-                                        Grant access to calendar staff <i class="mdi mdi-arrow-right"></i></h3>
+                                        Quản lý User với Role <i class="mdi mdi-arrow-right"></i></h3>
                                 </div>
                                 <img class="ml-3" src="assets/images/email-campaign.svg" width="120" alt="Generic placeholder image">
                             </div>

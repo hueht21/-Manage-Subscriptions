@@ -126,7 +126,7 @@
                                                                 <a href="javascript:void(0);" name="nameEdit" class="action-icon" onclick="getScheuleIndex( ${myIndex.index}  )" id="${map.ID}"> <i class="mdi mdi-square-edit-outline"></i></a>
 
                                                                 <form method="POST" style="display: inline" action="/approved/${map.ID}">
-                                                                    <button class="badge badge-success ClassApprovedd" style="size: 10px !important ; border: 0; margin: 2px;">Approve</button>
+                                                                    <button class="badge badge-success ClassApprovedd" style="size: 10px !important ; border: 0; margin: 2px;">Phê duyệt</button>
 
                                                                 </form>
                                                                 <br />
